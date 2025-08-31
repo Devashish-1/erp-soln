@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERP Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" href="data:," />
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="logo">ERP</div>
+                <div class="brand-meta">
+                    <span class="title">Nova<span class="accent">Core</span></span>
+                    <span class="subtitle">Enterprise Suite</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="nav-link active" data-route="dashboard">
+                    <span class="icon">🏠</span><span>Dashboard</span>
+                </button>
+                <div class="nav-section">Operations</div>
+                <button class="nav-link" data-route="inventory"><span class="icon">📦</span><span>Inventory</span></button>
+                <button class="nav-link" data-route="purchase"><span class="icon">🧾</span><span>Purchase</span></button>
+                <button class="nav-link" data-route="sales"><span class="icon">🛒</span><span>Sales & Orders</span></button>
+                <button class="nav-link" data-route="pricing"><span class="icon">💱</span><span>Pricing & Billing</span></button>
+                <button class="nav-link" data-route="finance"><span class="icon">💼</span><span>Finance</span></button>
+                <div class="nav-section">Insights</div>
+                <button class="nav-link" data-route="reports"><span class="icon">📊</span><span>Reports</span></button>
+                <div class="nav-section">Admin</div>
+                <button class="nav-link" data-route="users"><span class="icon">👤</span><span>Users</span></button>
+                <button class="nav-link" data-route="settings"><span class="icon">⚙️</span><span>Settings</span></button>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="themeToggle" class="ghost-btn">🌙 Theme</button>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="topbar">
+                <button id="sidebarToggle" class="icon-btn" aria-label="Toggle sidebar">☰</button>
+                <div class="search">
+                    <input id="globalSearch" type="search" placeholder="Search inventory, orders, invoices..." />
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn" id="notifBtn" title="Notifications">🔔</button>
+                    <div class="avatar" title="Admin"></div>
+                </div>
+            </header>
+
+            <section id="router-view" class="view">
+                <!-- Routed content injected here -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalTitle">Action</h3>
+                <button class="icon-btn" data-close aria-label="Close">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="ghost-btn" data-close>Close</button>
+                <button class="primary-btn" id="modalPrimary">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            window.ERP.init();
+        });
+    </script>
+</body>
+<!-- Built for demo: zero external deps, open index.html to run. -->
+</html>
+
+
